@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello wasm-pack!</title>
+    <style>
+        body {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #fps {
+            white-space: pre;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+<div id="fps"></div>
+<p>Tick settings:</p>
+
+<div>
+    <input type="range" id="ticks" name="ticks"
+           min="0" max="10">
+    <label for="ticks">Ticks</label>
+</div>
+<button id="reset">Random reset</button>
+<button id="death">Ultimate death</button>
+<button id="play-pause"></button>
+<canvas id="game-of-life-canvas"></canvas>
+
+<noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
+<script src="./bootstrap.js"></script>
+</body>
+</html>
