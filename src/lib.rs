@@ -4,7 +4,6 @@ use rand_core::{OsRng, RngCore};
 use std::fmt;
 use wasm_bindgen::prelude::*;
 use web_sys::console;
-#[wasm_bindgen]
 extern crate web_sys;
 // A macro to provide `println!(..)`-style syntax for `console.log` logging.
 macro_rules! log {
@@ -147,10 +146,10 @@ impl Universe {
         let height = 64;
         let mut key = [0u8; 16];
         OsRng.fill_bytes(&mut key);
-        let random_u64 = OsRng.next_u64();
+
         let cells = (0..width * height)
             .map(|i| {
-                if random_u64 % 2 == 0 || random_u64 % 7 == 0 {
+                if OsRng.next_u64() % 2 == 0 {
                     Cell::Alive
                 } else {
                     Cell::Dead
