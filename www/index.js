@@ -24,7 +24,6 @@ canvas.height = (CELL_SIZE + 1) * height + 1;
 canvas.width = (CELL_SIZE + 1) * width + 1;
 
 const ctx = canvas.getContext('2d');
-const gl = canvas.getContext('webgl2');
 let animationId = null;
 const fps = new class {
     constructor() {
@@ -69,15 +68,11 @@ max of last 100 = ${Math.round(max)}
     }
 };
 const renderLoop = () => {
-    fps.render(); //new
+    fps.render();
     let ticks = document.getElementById("ticks").value;
     for (let i = 0; i <  ticks ; i++) {
         universe.tick();
     }
-    // for (let i = 1; i< document.getElementById("ticks").value+1;i++) {
-
- // }
-
     drawGrid();
     drawCells();
 
